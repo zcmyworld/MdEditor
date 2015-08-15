@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Marked in the browser</title>
+
+		<link rel="stylesheet" href="mdEditor_lib/styles/tomorrow-night-eighties.css">
+		<link rel="stylesheet" type="text/css" href="mdEditor.css">
+		<link rel="stylesheet" type="text/css" href="mdEditor_lib/markdown.css">
+		<link rel="stylesheet" href="mdEditor_lib/codemirror.css">
+		<link rel="stylesheet" href="mdEditor_lib/progress.css">
+
+		<script src="mdEditor_lib/marked.js"></script>
+		<script src="mdEditor_lib/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="mdEditor_lib/highlight.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+		<script src="mdEditor_lib/codemirror.js"></script>
+		<script type="text/javascript" src="mdEditor_lib/htmlCompare/htmlCompare.js"></script>
+	</head>
+	<body>
+		<div id="operationBox">
+			<div id="moveBox">
+				<div id="mainBox">
+					<div id="one" class="ele">
+						<div id="box" class="op">
+							<textarea id="input" name="input"></textarea>
+						</div>
+					</div>
+					<div id="two" class="ele">
+						<div id="output" class="op"></div>
+					</div>
+					<div id="three" class="ele">
+						<div id="outputHistory"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="sub">确定</div>
+		<script>
+		var editor = CodeMirror.fromTextArea(document.getElementById("input"), {
+		lineNumbers: true,
+		matchBrackets: true,
+		continueComments: "Enter",
+		extraKeys: {"Ctrl-Q": "toggleComment"}
+		});
+		</script>
+		<script src="mdEditor.js"></script>
+	</body>
+</html>
